@@ -1,14 +1,17 @@
 package org.example.sale_land.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Building {
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,6 +20,10 @@ public class Building {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "street_id", nullable = false)
-    private Street street;
+    @JoinColumn(name = "country_id", nullable = false)
+    private Country country;
+
+    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
+    private Set<District> districts;
+
 }

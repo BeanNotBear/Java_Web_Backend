@@ -5,6 +5,6 @@ import org.example.sale_land.model.Building;
 
 public class BuildingMapper {
     public static BuildingDTO toBuildingDTO(Building building) {
-        return new BuildingDTO(building.getName(), building.getAddress());
+        return new BuildingDTO(building.getName(), building.getStreet());
     }
 }

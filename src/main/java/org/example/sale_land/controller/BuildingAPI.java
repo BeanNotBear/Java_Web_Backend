@@ -40,21 +40,7 @@ public class BuildingAPI {
     public ResponseEntity<Object> createBuilding(
             @RequestBody BuildingDTO building
     ) {
-        validateBuilding(building);
         return new ResponseEntity<Object>(building, HttpStatus.CREATED);
-    }
-
-    private void validateBuilding(BuildingDTO building) {
-        if(building != null) {
-            if(building.getName() == null || building.getName().trim().isEmpty()) {
-                throw new FieldRequiredException("Name is required");
-            }
-            if(building.getAddress() == null || building.getAddress().trim().isEmpty()) {
-                throw new FieldRequiredException("Address is required");
-            }
-        } else {
-            throw new FieldRequiredException("Building is null");
-        }
     }
 
     @DeleteMapping(value = "/buildings/{id}")

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.sale_land.model.Street;
 
 @Data
 @Builder
@@ -11,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BuildingDTO {
     private String name;
-    private String address;
+    private Street street;
 }
